@@ -29,3 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 });
+
+// Copy Email Function
+function copyEmail(button) {
+    const email = 'berechit13@gmail.com';
+    const textSpan = button.querySelector('.email-text');
+    const originalText = textSpan.textContent;
+    
+    navigator.clipboard.writeText(email).then(() => {
+        textSpan.textContent = '복사되었습니다!';
+        
+        // Reset text after 2 seconds
+        setTimeout(() => {
+            textSpan.textContent = originalText;
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy email: ', err);
+        textSpan.textContent = '복사 실패';
+        setTimeout(() => {
+            textSpan.textContent = originalText;
+        }, 2000);
+    });
+}

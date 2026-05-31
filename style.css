@@ -59,6 +59,14 @@ p {
     z-index: 10;
 }
 
+.hero-logo {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 20px; /* 약간 둥글게 처리 (선택 사항) */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
 .main-title {
     font-size: 3rem;
     font-weight: 900;
@@ -76,10 +84,74 @@ p {
     line-height: 1.8;
 }
 
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.instagram-link {
+    color: #e1306c;
+    box-shadow: 0 4px 15px rgba(225, 48, 108, 0.05);
+}
+
+.instagram-link:hover {
+    box-shadow: 0 6px 20px rgba(225, 48, 108, 0.15);
+}
+
+.instagram-link .social-icon {
+    fill: #e1306c;
+}
+
+.email-link {
+    color: #ea4335;
+    box-shadow: 0 4px 15px rgba(234, 67, 53, 0.05);
+}
+
+.email-link:hover {
+    box-shadow: 0 6px 20px rgba(234, 67, 53, 0.15);
+}
+
+.email-link .social-icon {
+    fill: #ea4335;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    transition: fill 0.3s ease;
+}
+
 /* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: 40px;
+    bottom: 110px; /* 커피챗 버튼에 가리지 않도록 위치 상향 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,7 +199,7 @@ p {
     border-radius: 20px;
     padding: 2rem 1.5rem;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .card:active {
@@ -168,6 +240,22 @@ p {
     transform: translateY(0);
 }
 
+.interactive-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.interactive-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 0 0 1px rgba(108, 92, 231, 0.5), 0 12px 24px rgba(108, 92, 231, 0.2);
+    cursor: pointer;
+}
+
+.interactive-card:hover h2 {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
 /* --- Footer / CTA Section --- */
 .footer-cta {
     position: fixed;
@@ -200,4 +288,91 @@ p {
 .btn-cta:active {
     transform: scale(0.95);
     background: #5A4BCC;
+}
+
+/* --- Rama Coding Section --- */
+.blama-coding-section {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.section-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.blama-coding-grid,
+.bestseller-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1rem 0.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    min-height: 80px;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px) scale(1.03);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(108, 92, 231, 0.4);
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.15);
+    color: var(--primary-color);
+}
+
+.grid-item:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow: 0 5px 10px rgba(108, 92, 231, 0.1);
+}
+
+/* --- Topic Card Subtle Themes --- */
+/* Topic 1 (Dawn) */
+.topic-card:nth-of-type(1) {
+    background: rgba(255, 238, 238, 0.5);
+    border-color: rgba(255, 200, 200, 0.4);
+}
+
+/* Topic 2 (Coding) */
+.topic-card:nth-of-type(2) {
+    background: rgba(240, 247, 255, 0.5);
+    border-color: rgba(200, 220, 255, 0.4);
+}
+
+/* Topic 3 (Literature) */
+.topic-card:nth-of-type(3) {
+    background: rgba(248, 243, 255, 0.5);
+    border-color: rgba(230, 210, 255, 0.4);
+}
+
+/* Topic 4 (Travel) */
+.topic-card:nth-of-type(4) {
+    background: rgba(255, 252, 235, 0.5);
+    border-color: rgba(255, 240, 180, 0.4);
+}
+
+/* Topic 5 (Nature) */
+.topic-card:nth-of-type(5) {
+    background: rgba(240, 255, 244, 0.5);
+    border-color: rgba(200, 255, 210, 0.4);
 }
