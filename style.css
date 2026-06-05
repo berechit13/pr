@@ -22,9 +22,15 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
-    /* Soft gradient background */
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-    background-attachment: fixed;
+    /* Horizontal background for desktop/web */
+    background: url('pic/background-hor.webp') center/cover no-repeat fixed;
+}
+
+/* Vertical background for mobile screens */
+@media (max-width: 768px) {
+    body {
+        background: url('pic/background-ver.webp') center/cover no-repeat fixed;
+    }
 }
 
 /* Base Typo */
@@ -57,6 +63,16 @@ p {
 
 .hero-content {
     z-index: 10;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2.5rem 3rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-logo {
@@ -71,11 +87,9 @@ p {
     font-size: 3rem;
     font-weight: 900;
     margin-bottom: 1rem;
-    color: var(--primary-color);
-    /* Gradient text effect */
-    background: -webkit-linear-gradient(45deg, var(--primary-color), #FF7675);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #333333;
+    letter-spacing: -1px;
+    text-shadow: 1px 2px 0px rgba(255, 255, 255, 1), -1px -1px 0px rgba(0, 0, 0, 0.1);
 }
 
 .catchphrase {
