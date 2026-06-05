@@ -347,6 +347,28 @@ p {
         font-size: 0.85rem; /* 폰트 크기를 약간 줄여 좁은 칸에 맞춤 */
         padding: 0.8rem 0.2rem; /* 좌우 여백을 줄여 글자가 차지할 공간 확보 */
     }
+
+    .contact-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .social-link {
+        width: 45px;
+        height: 45px;
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .social-text {
+        display: none;
+    }
+
+    .social-icon {
+        width: 22px;
+        height: 22px;
+    }
 }
 
 /* --- Topic Card Subtle Themes --- */
