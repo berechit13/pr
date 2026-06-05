@@ -86,9 +86,10 @@ p {
 
 .contact-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1.5rem;
     margin-top: 1.5rem;
 }
 
@@ -96,19 +97,16 @@ p {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 0.7rem 1.5rem;
-    border-radius: 30px;
+    width: 44px; /* Ensure equal width/height for circular or perfectly padded buttons */
+    height: 44px;
+    padding: 0;
+    border-radius: 50%; /* Circle shape since text is removed */
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     transition: all 0.3s ease;
     cursor: pointer;
-    font-family: inherit;
 }
 
 .social-link:hover {
@@ -347,28 +345,6 @@ p {
         font-size: 0.85rem; /* 폰트 크기를 약간 줄여 좁은 칸에 맞춤 */
         padding: 0.8rem 0.2rem; /* 좌우 여백을 줄여 글자가 차지할 공간 확보 */
     }
-
-    .contact-links {
-        flex-direction: row;
-        justify-content: center;
-        gap: 1.5rem;
-    }
-
-    .social-link {
-        width: 45px;
-        height: 45px;
-        padding: 0;
-        border-radius: 50%;
-    }
-
-    .social-text {
-        display: none;
-    }
-
-    .social-icon {
-        width: 22px;
-        height: 22px;
-    }
 }
 
 /* --- Topic Card Subtle Themes --- */
@@ -400,4 +376,28 @@ p {
 .topic-card:nth-of-type(5) {
     background: rgba(240, 255, 244, 0.5);
     border-color: rgba(200, 255, 210, 0.4);
+}
+
+/* Toast Message */
+.toast {
+    position: fixed;
+    bottom: -100px; /* Hidden initially */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(45, 52, 54, 0.9);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Playful bounce */
+    z-index: 1000;
+    pointer-events: none;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.toast.show {
+    bottom: 40px; /* Position when visible */
 }

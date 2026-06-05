@@ -1,3 +1,20 @@
+let toastTimeout;
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    if (toastTimeout) {
+        clearTimeout(toastTimeout);
+    }
+
+    toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded and parsed');
 
@@ -15,12 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 // Add the 'visible' class to trigger the CSS animation
                 entry.target.classList.add('visible');
-                
-                // Optional: Stop observing once the animation has played
-                // observer.unobserve(entry.target); 
-            } else {
-                // Optional: Remove class to replay animation when scrolling back up
-                // entry.target.classList.remove('visible');
             }
         });
     }, observerOptions);
@@ -28,26 +39,37 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(element => {
         observer.observe(element);
     });
+
+    // 2. Interactive Logo (Toast Message)
+    const logo = document.getElementById('heroLogo');
+
+    const messages = [
+        "라마는 티베트어로 '영적인 스승'을 말합니다.",
+        "꾸준함이 취미입니다.",
+        "수상자가 아니라 시상자",
+        "책을 꽤 많이 읽습니다.",
+        "음치였지만 기타 강사",
+        "영어바보였지만 영어 교사",
+        "시인/수필가",
+        "영어, 스페인어, 중국어 + a"
+    ];
+
+    if (logo) {
+        logo.addEventListener('click', () => {
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            showToast(randomMsg);
+        });
+    }
 });
 
 // Copy Email Function
 function copyEmail(button) {
     const email = 'berechit13@gmail.com';
-    const textSpan = button.querySelector('.email-text');
-    const originalText = textSpan.textContent;
     
     navigator.clipboard.writeText(email).then(() => {
-        textSpan.textContent = '복사되었습니다!';
-        
-        // Reset text after 2 seconds
-        setTimeout(() => {
-            textSpan.textContent = originalText;
-        }, 2000);
+        showToast('클립보드에 복사되었습니다.');
     }).catch(err => {
         console.error('Failed to copy email: ', err);
-        textSpan.textContent = '복사 실패';
-        setTimeout(() => {
-            textSpan.textContent = originalText;
-        }, 2000);
+        showToast('복사 실패');
     });
 }
