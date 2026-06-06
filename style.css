@@ -98,6 +98,30 @@ p {
     line-height: 1.8;
 }
 
+.author-info {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-top: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Mobile responsive typography */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    .catchphrase {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    .author-info {
+        font-size: 0.9rem;
+        margin-top: 0.8rem;
+    }
+}
+
 .contact-links {
     display: flex;
     flex-direction: row;
@@ -175,14 +199,17 @@ p {
     font-size: 0.8rem;
     margin-bottom: 5px;
     letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .arrow {
     width: 20px;
     height: 20px;
-    border-right: 2px solid var(--text-color);
-    border-bottom: 2px solid var(--text-color);
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
     transform: rotate(45deg);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes bounce {
